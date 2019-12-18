@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "fabric-ui-nesting-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/fabricUiNesting/FabricUiNestingWebPart.js",
+          "manifest": "./src/webparts/fabricUiNesting/FabricUiNestingWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "FabricUiNestingWebPartStrings": "lib/webparts/fabricUiNesting/loc/{locale}.js"
+  }
+}
