@@ -1,13 +1,20 @@
-@import '~@microsoft/sp-office-ui-fabric-core/dist/sass/SPFabricCore.scss';
 @import '~office-ui-fabric-react/dist/sass/References.scss';
-// @import '@uifabric/fluent-theme/lib/fluent/FluentDepths';
 
 .tab {
   color: #FFF;
-  width: 40%;
-  float:left;
   padding: 20px;
-  @include ms-depth-8;
+  @include ms-sm5;
+  float:left;
+  @include ms-bgColor-redDark;
+  margin: 5px;
+
+  ul {
+    padding-left: 0;
+
+    li {
+      list-style-type: none;
+    }
+  }
 }
 
 .container {
@@ -25,8 +32,6 @@
 
 .column {
   @include ms-Grid-col;
-  @include ms-lg10;
-  @include ms-xl8;
-  @include ms-xlPush2;
-  @include ms-lgPush1;
+  @include ms-lg12;
+  @include ms-xl12;
 }

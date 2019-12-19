@@ -16,11 +16,8 @@ export default class FabricUiNesting extends React.Component<IFabricUiNestingPro
       <div className={ styles.fabricUiNesting }>
         <div className={ styles.container }>
           <div className={ styles.row }>
-            <div className={ styles.column }>
-              <p>Check the console. Props should be passing the list in: listData</p>
-              <ListPage { ...this.props } />
-
-            </div>
+            <p>Check the console. Props should be passing the list in: listData</p>
+            <ListPage { ...this.props } />
           </div>
         </div>
       </div>

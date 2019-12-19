@@ -1,6 +1,6 @@
 import * as React from 'react';
 import styles from './ListPage.module.scss';
-
+import ListElement from './ListElement/listElement';
 
 class ListPage extends React.Component<any,any,any> {
   constructor(props:any) {
@@ -13,24 +13,24 @@ class ListPage extends React.Component<any,any,any> {
     console.log("[ListPage.jsx] - STATE PROPS",this.state.listData);
   }
 
+  public nameChangeHandler = (nameChange:string, id:number) => {
+    console.log("NAME Passed nameChangeHandler: ",nameChange);
+    console.log("ID Passed nameChangeHandler: ",id);
+  }
+
+
   public render() {
     return (
-      <React.Fragment>
+      <div className={ styles.column }>
         <p>List Page content</p>
         {
           this.state.listData.map((index)=> {
             return (
-              <div className={styles.tab} key={index.Id}>
-                <ul>
-                 <li>{ index.Title }</li>
-                 <li>{ index.Department }</li>
-                 </ul>
-              </div>
+              <ListElement key={index.Id} styleVar={styles.tab} {...index} nameChangeHandler={this.nameChangeHandler} />
             );
           })
         }
-
-      </React.Fragment>
+      </div>
     );
   }
 

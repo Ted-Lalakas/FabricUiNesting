@@ -30,7 +30,7 @@ export default class FabricUiNestingWebPart extends BaseClientSideWebPart<IFabri
 
   // Get list from Sharepoint. List name: SharePointList
   private _getListItems(): Promise<any[]> {
-    return this.context.spHttpClient.get(this.context.pageContext.web.absoluteUrl + "/_api/web/lists/getByTitle('SharePointList')/items", SPHttpClient.configurations.v1)
+    return this.context.spHttpClient.get(this.context.pageContext.web.absoluteUrl + "/_api/web/lists/getByTitle('NewYearsParty')/items", SPHttpClient.configurations.v1)
       .then((response: SPHttpClientResponse) => {
         return response.json();
       })
