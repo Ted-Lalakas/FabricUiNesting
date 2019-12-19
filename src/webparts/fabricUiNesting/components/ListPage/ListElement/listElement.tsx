@@ -11,7 +11,7 @@ const listElement = (props:any) => {
         <TextField label="Rename yourself" defaultValue={ props.Title } onChange={(event, newValue) => props.nameChangeHandler(newValue, props.Id)} />
       </ul>
     </div>
-  )
-}
+  );
+};
 
 export default listElement;
