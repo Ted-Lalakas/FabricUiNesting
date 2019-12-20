@@ -10,11 +10,10 @@ import * as strings from 'FabricUiNestingWebPartStrings';
 import FabricUiNesting from './components/FabricUiNesting';
 import { IFabricUiNestingProps } from './components/IFabricUiNestingProps';
 
+import { SPHttpClient, SPHttpClientResponse } from '@microsoft/sp-http';
 import { Environment, EnvironmentType } from '@microsoft/sp-core-library';
 
 import { mockData } from '../fabricUiNesting/MockData';
-
-import getRestData from './getRestData';
 
 export interface IFabricUiNestingWebPartProps {
   description: string;
@@ -29,6 +28,16 @@ export default class FabricUiNestingWebPart extends BaseClientSideWebPart<IFabri
     return (Environment.type === EnvironmentType.SharePoint || Environment.type === EnvironmentType.ClassicSharePoint);
   }
 
+  private _getListItems(): Promise<any[]> {
+    return this.context.spHttpClient.get(this.context.pageContext.web.absoluteUrl + "/_api/web/lists/getByTitle('NewYearsParty')/items", SPHttpClient.configurations.v1)
+      .then((response: SPHttpClientResponse) => {
+        return response.json();
+      })
+      .then(jsonResponse => {
+        return jsonResponse.value;
+      }) as Promise<any[]>;
+  }
+
   public render(): void {
     // Check if the app is running on local or online environment
     if (!this._isSharePoint) {
@@ -39,7 +48,7 @@ export default class FabricUiNestingWebPart extends BaseClientSideWebPart<IFabri
       // If online then grab the list and .THEN once that is done render the component to the DOM.
       console.log("ONLINE");
 
-      getRestData(this.context, "/_api/web/lists/getByTitle('NewYearsParty')/items").then(response => {      
+      this._getListItems().then(response => {      
         this.checkConditionPassToRender(response);
       });
     }
