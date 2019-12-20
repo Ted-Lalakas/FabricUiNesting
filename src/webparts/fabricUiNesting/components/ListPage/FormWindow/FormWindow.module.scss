@@ -1,27 +1,22 @@
 @import '~office-ui-fabric-react/dist/sass/References.scss';
 
-.tab {
-  color: #FFF;
+
+.container {
+  max-width: 700px;
+  min-width: 350px;
+  margin: 0px auto;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
   padding: 20px;
-  @include ms-sm5;
-  float:left;
-  @include ms-bgColor-redDark;
-  margin: 5px;
 
   ul {
     padding-left: 0;
 
-    li {
-      list-style-type: none;
+    li { 
+      list-style: none;
       margin: 10px 0;
-    }
+     }
   }
-}
-
-.container {
-  max-width: 700px;
-  margin: 0px auto;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  
 }
 
 .row {
@@ -35,4 +30,8 @@
   @include ms-Grid-col;
   @include ms-lg12;
   @include ms-xl12;
+}
+
+.textField{
+  color: #FFF;
 }
