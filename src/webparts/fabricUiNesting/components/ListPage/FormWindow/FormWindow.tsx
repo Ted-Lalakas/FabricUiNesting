@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { DefaultButton } from 'office-ui-fabric-react';
 import styles from './FormWindow.module.scss';
+import { IFormWindowProps, IFormWindowState } from './IFormWindow';
 
 import { ProgressIndicator } from 'office-ui-fabric-react/lib/ProgressIndicator';
 import { Async } from 'office-ui-fabric-react/lib/Utilities';
@@ -9,17 +10,13 @@ import FormPage1 from './FormPage1/formPage1';
 import FormPage2 from './FormPage2/formPage2';
 import FormPage3 from './FormPage3/formPage3';
 
-class FormWindow extends React.Component<any,any,any> {
-  constructor(props:any) {
-    super(props);
-
-    this.state = {
-      page1: true,
-      page2: false,
-      page3: false,
-      percentComplete: 0.3
-    };
-  }
+class FormWindow extends React.Component<IFormWindowProps,IFormWindowState> {
+  public state = {
+    page1: true,
+    page2: false,
+    page3: false,
+    percentComplete: 0.3
+  };
 
   public progressLabel = "Progress of Update";
 
@@ -57,7 +54,7 @@ class FormWindow extends React.Component<any,any,any> {
               textField={styles.textField} 
               userTeam={this.props.userDetails.Team} 
               userId={this.props.userDetails.Id} 
-              nameChangeHandler={this.props.teamChangeHandler} 
+              teamChangeHandler={this.props.teamChangeHandler} 
             />
             <DefaultButton text="Next Page" onClick={() => this.setState({ page1: false, page2: false, page3: true, percentComplete: 0.9 })} />
           </li>
@@ -70,7 +67,7 @@ class FormWindow extends React.Component<any,any,any> {
               textField={styles.textField} 
               userDepartment={this.props.userDetails.Department} 
               userId={this.props.userDetails.Id} 
-              nameChangeHandler={this.props.depChangeHandler} 
+              depChangeHandler={this.props.depChangeHandler} 
             />
             <DefaultButton text="Next Page" onClick={() => this.setState({ page1: false, page2: false, page3: false, percentComplete: 1 })} />
           </li>

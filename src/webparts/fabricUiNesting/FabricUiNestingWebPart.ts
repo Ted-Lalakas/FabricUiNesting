@@ -55,7 +55,7 @@ export default class FabricUiNestingWebPart extends BaseClientSideWebPart<IFabri
   }
 
   private checkConditionPassToRender(listData:any[]) {
-    const element: React.ReactElement<IFabricUiNestingProps > = React.createElement(
+    const element: React.ReactElement<IFabricUiNestingProps> = React.createElement(
       FabricUiNesting,
       {
         description: this.properties.description,

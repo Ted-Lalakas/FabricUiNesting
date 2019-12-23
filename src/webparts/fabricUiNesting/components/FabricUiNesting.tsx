@@ -5,12 +5,6 @@ import { IFabricUiNestingProps } from './IFabricUiNestingProps';
 import ListPage from './ListPage/ListPage';
 
 export default class FabricUiNesting extends React.Component<IFabricUiNestingProps, {}> {
-  constructor(props) {
-    super(props);
-
-    console.log("[FabricUiNesting.tsx]",props);
-  }
-
   public render(): React.ReactElement<IFabricUiNestingProps> {
     return (
       <div className={ styles.fabricUiNesting }>

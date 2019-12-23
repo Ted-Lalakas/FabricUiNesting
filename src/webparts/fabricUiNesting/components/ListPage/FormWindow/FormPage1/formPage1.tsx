@@ -1,7 +1,14 @@
 import * as React from 'react';
 import { TextField } from 'office-ui-fabric-react/lib/TextField';
 
-const formPage1 = (props:any) => {
+interface IformPage1Props {
+  textField: string;
+  userTitle: string;
+  userId: number;
+  nameChangeHandler: ( newValue: string, Id: number ) => void;
+}
+
+const formPage1 = (props:IformPage1Props) => {
   console.log(props);
 
   return (
